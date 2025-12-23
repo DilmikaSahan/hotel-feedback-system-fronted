@@ -98,7 +98,77 @@
     transform: scale(1.03);
 }
 
-/* MOBILE */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-card {
+  background: white;
+  padding: 24px 30px;
+  border-radius: 12px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-card h2 {
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.success-text {
+  color: black;
+}
+
+.error-text {
+  color: black;
+}
+
+.modal-card p {
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #333;
+  font-weight: 500;
+}
+
+.modal-btn {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 45px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.popup-title {
+  display: flex;          
+  gap: 8px;              
+  font-size: 15px;
+}
+.popup-icon svg {
+  margin-top: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.modal-btn:hover {
+  background-color: #1d4ed8;
+}
+.success-ok {
+    background-color: #25d181f8;
+}
+.success-ok:hover {
+    background-color: #1bb66a;
+}
+
+
 @media (max-width: 480px) {
     .home-actions {
         flex-direction: column;

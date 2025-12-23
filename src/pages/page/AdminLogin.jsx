@@ -1,16 +1,73 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../../auth/authContext.jsx";
 import "../styles/AdminLogin.css";
 
 const AdminLogin = () => {
+    const {login} = useAuth();
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [loading,setLoading] = useState(false);
+    const [showPopup,setShowPopup] = useState(false);
+    const [popupType,setPopupType] = useState("");
+    const [popupMessage,setPopupMessage] = useState("");
+    const [error, setError] = useState("");
 
-    const handleLogin = (e) => {
+    const errorIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#db3647ff"
+    class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0
+    M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0
+    l.35-3.507A.905.905 0 0 0 8 4
+    m.002 6a1 1 0 1 0 0 2
+    1 1 0 0 0 0-2"/>
+    </svg>
+    );
+
+    const successIcon = () => (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#25d181f8"
+    class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8
+    a8 8 0 0 1 16 0
+    m-3.97-3.03a.75.75 0 0 0-1.08.022
+    L7.477 9.417 5.384 7.323
+    a.75.75 0 0 0-1.06 1.06
+    L6.97 11.03a.75.75 0 0 0 1.079-.02
+    l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </svg>
+    );
+
+    
+    const handleLogin = async (e) => {
         e.preventDefault();
-        console.log("Logging in with", { username, password });
-    };
+        setError('');
+        setLoading(true);
+
+        try {
+            await login(username, password);
+
+            setPopupType('success');
+            setPopupMessage('Login successful! Redirecting...');
+            setShowPopup(true);
+            
+        } catch (error) {
+            setPopupType('error');
+            setPopupMessage('Invalid username or password !');
+            setShowPopup(true);
+            setError('Invalid username or password');
+        } finally {
+            setLoading(false);
+        }
+
+    ;}
+    const handlePopupOk = () => {
+        setShowPopup(false);
+
+        if (popupType === 'success') {
+            navigate('/adminPage');
+        }
+    }
     return (
         <div className="login-container">
       <div className="login-card">
@@ -60,16 +117,16 @@ const AdminLogin = () => {
                 width="16" 
                 height="16" 
                 fill="currentColor" 
-                class="bi bi-arrow-left" 
+                className="bi bi-arrow-left" 
                 viewBox="0 0 16 16">
-                <path fill-rule="evenodd" 
+                <path fillRule="evenodd" 
                 d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
                 </svg>
               <span>Back</span>
             </button>
     
            
-            <button type="submit" className="btn btn-login">
+            <button type="submit" className="btn btn-login" disabled={loading} onClick={handleLogin}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -86,11 +143,31 @@ const AdminLogin = () => {
                   d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"
                 />
               </svg>
-              <span>Sign In</span>
+              <span>{loading ? 'Signing In...' : 'Sign In'}</span>
             </button>
           </div>
         </form>
       </div>
+      {showPopup && (
+        <div className="modal-overlay">
+            <div className="modal-card">
+                <h2 className={`popup-title ${popupType === "success" ? "success-text" : "error-text"}`}>
+                    <span>
+                    {popupType === "success" ? successIcon() : errorIcon()}
+                    </span>
+                    <span>
+                        {popupType === "success" ? "Success" : "Login Error"}
+                    </span>
+                </h2>
+        <p>{popupMessage}</p>
+      <button className={`modal-btn ${popupType === "success" ? "success-ok" : "error-ok"}`} onClick={handlePopupOk}>
+        OK
+      </button>
+    </div>
+  </div>
+)}
+
+    
     </div>
   );
 }
