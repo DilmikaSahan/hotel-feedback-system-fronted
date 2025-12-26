@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getAccessToken, logout } from '../auth/auth';
 
 const adminApiSecure = axios.create({
     baseURL: "http://localhost:8080/api/v1/admin",
@@ -30,17 +31,33 @@ export const getDashboardStats = async () => {
 }
 
 export const addWaiter = async (name) => {
-    const response = await adminApiSecure.post('/addWaiter', { name });
+    const response = await adminApiSecure.post('/addWaiter',null, { params: { NewWaiterName:name } });
     return response.data;
 }
 
 export const addChef = async (name) => {
-    const response = await adminApiSecure.post('/addChef', { name });
+    const response = await adminApiSecure.post('/addChef', null, { params: { NewChefName:name } });
     return response.data;
 }
 
-export const addRoomTable = async () => {
-    const response = await adminApiSecure.post('/addRoomTable');
+export const addRoomTable = async (name) => {
+    const response = await adminApiSecure.post('/addRoomTable', null, { params: { NewRoomTableName:name } });
+    return response.data;
+}
+export const deleteWaiter = async (name) => {
+    const response = await adminApiSecure.delete(`/removeWaiter/${name}`);
+    return response.data;
+}
+export const deleteChef = async (name) => {
+    const response = await adminApiSecure.delete(`/removeChef/${name}`);
+    return response.data;
+}
+export const deleteRoomTable = async (name) => {
+    const response = await adminApiSecure.delete(`/removeRoomTable/${name}`);
+    return response.data;
+}
+export const getAllFeedbacks = async () => {
+    const response = await adminApiSecure.get('/getAllFeedBacks');
     return response.data;
 }
 

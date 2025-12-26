@@ -16,7 +16,7 @@ const AdminLogin = () => {
 
     const errorIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#db3647ff"
-    class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+    className="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0
     M8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0
     l.35-3.507A.905.905 0 0 0 8 4
@@ -27,7 +27,7 @@ const AdminLogin = () => {
 
     const successIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#25d181f8"
-    class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+    className="bi bi-check-circle-fill" viewBox="0 0 16 16">
     <path d="M16 8A8 8 0 1 1 0 8
     a8 8 0 0 1 16 0
     m-3.97-3.03a.75.75 0 0 0-1.08.022

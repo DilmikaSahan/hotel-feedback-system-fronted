@@ -1,0 +1,330 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h2{
+      color: #1d50bdff;
+      margin-top: 0;
+      font-size: 24px;
+      margin-bottom: 6px;
+}
+.admin-pannel {
+  padding: 20px;
+  background: #f4f6f8;
+}
+
+.parent-card {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 600px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+}
+.dashboard-header{
+    justify-content: space-between;
+    align-content: center;
+    margin-bottom: 20px;
+}
+.dashboard-header h2{
+    color: #1d50bdff;
+    font-weight: 700;
+    align-items: center;
+    margin-top: 5px;
+}
+.dashboard-header p{
+    color: #6b7280;
+    font-weight: 400;
+    margin-top: 5px;
+}
+
+.btn-logout {
+  display: inline-block;
+  width:100%;
+  max-width: 600px;
+  background:transparent;
+  color: #;
+  font-weight: 600;
+  border: 1px solid #6b7280;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 10px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.btn-logout:hover {
+    background-color: #f3f4f6;
+}
+.btn-logout svg{
+    margin-right: 6px;
+    vertical-align: middle;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.stats-card {
+  background: transparent;
+  border: 1px solid #929394ff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+}
+.stats-card h2 {
+  font-size: 30px;
+  margin: 20px 0 0 0;
+  color: #1d50bdff;
+}
+.stats-card p {
+  margin: 18px ;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+
+.filter-grid {
+  gap: 10px;
+}
+.filter-grid select {
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.filter-grid select:hover {
+  border-color: #1d50bdff;
+}
+input, select {
+  padding: 8px;
+  width: 100%;
+  margin: 6px 0;
+}
+.filter-acctions{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+.btn-filter{
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-apply-filters{
+  background: #1d50bdff;
+  border: 1px solid #1d50bdff;
+
+}
+.btn-clear-filters{
+  background: transparent;
+  color: black;
+  border: 1px solid #81848aff;
+}
+.btn-apply-filters:hover{
+    background-color: #1547aaff;
+}
+.btn-clear-filters:hover{
+    background-color: #f3f4f6;
+}
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  min-width: 280px;
+  text-align: center;
+
+}
+.modal p{
+    font-weight: 500;
+    margin-top: 12px;
+}
+.modal svg,p{
+    padding-right: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.btn-row BUTTON {
+  background:transparent;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  gap: 8px;
+  padding: 1px 20px;
+
+}
+
+.btn-row{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: right;
+    padding-top: 15px;
+}
+.btn-yes:hover {
+    color: #0b9448ff;
+    transform: scale(1.05);
+}
+.btn-no:hover {
+    color: #1d50bdff;
+    transform: scale(1.05);
+}
+.btn-ok:hover {
+    color: #0b9448ff;
+    transform: scale(1.05); 
+
+}
+// Styles for managing dynamic lists (e.g., room tables, waiters)
+.management-card h5 {
+  text-align: left;
+}
+h5{
+  color: #343436ff;
+  vertical-align: bottom;
+}
+
+.add-section {
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 0;
+}
+
+.add-section input {
+  padding: 8px 2px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 0;
+  margin-bottom: 6px; /* space between input and button */
+}
+.add-section input:focus {
+  outline: none;
+  border-color: #1d50bdff;
+}
+
+.add-btn {
+  padding: 8px 14px;
+  background-color: #1d50bdff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn:hover {
+  background-color: #0b5ed7;
+}
+
+.list-section {
+  margin-top: 16px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #444444;
+
+  max-height: 200px;
+  overflow-y: auto;
+
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  border: 1px solid #999797ff;
+
+}
+
+.delete-icon {
+  cursor: pointer;
+  color: #dc3545;
+  font-size: 16px;
+}
+
+.delete-icon:hover {
+  transform: scale(1.1);
+}
+
+.empty-text {
+  color: #888;
+  font-size: 14px;
+}
+
+.icon{
+    vertical-align: middle;
+    margin-right: 6px;
+    font-size: 30px;
+    margin-bottom: 4px;
+}
+.icon-small{
+    vertical-align: top;
+    margin-right: 0px;
+    font-size: 18px;
+}
+.icon-delete{
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+
+@media (max-width: 768px) {
+  .card {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .add-section input{
+  }
+}
+@media (max-width: 480px) {
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .card {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .btn-logout {
+    width: 100%;
+  }
+}

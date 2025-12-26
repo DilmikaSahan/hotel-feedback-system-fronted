@@ -28,10 +28,12 @@
 }
 
 .home-actions {
-    display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
     justify-content: center;
+}
+.home-acctions svg{
+    margin: 0;
 }
 
 /* BUTTON BASE */
@@ -80,7 +82,7 @@
 /* MOBILE */
 @media (max-width: 768px) {
     .home-actions {
-        flex-direction: column;
+        flex-direction: column;;
         width: 100%;
         gap: 1rem;
         align-items: center;
