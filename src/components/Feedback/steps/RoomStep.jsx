@@ -1,3 +1,4 @@
+import {MdMeetingRoom} from "react-icons/md";
 const RoomStep = ({ rooms, feedback, setFeedback }) => (
   <div className="card-grid">
     {rooms.map(r => (
@@ -6,7 +7,8 @@ const RoomStep = ({ rooms, feedback, setFeedback }) => (
         className={feedback.roomTable === r.roomTable ? "selected" : ""}
         onClick={() => setFeedback(f => ({ ...f, roomTable: r.roomTable }))}
       >
-        {r.roomTable}
+        <MdMeetingRoom className="icon"/>
+        <span className="button-icon"></span>{r.roomTable}
       </button>
     ))}
   </div>

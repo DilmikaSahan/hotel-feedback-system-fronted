@@ -1,0 +1,33 @@
+/* Room selection grid */
+.room-step {
+  margin-top: 0.75rem;
+}
+
+.room-step .card-grid {
+  margin-bottom: 0;
+}
+
+.room-step-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.room-step-label h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.room-step-label span {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+@media (max-width: 640px) {
+  .room-step-label h3 {
+    font-size: 1rem;
+  }
+}

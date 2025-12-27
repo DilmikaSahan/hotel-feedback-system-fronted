@@ -1,4 +1,4 @@
-import { use, useEffect,useState } from "react";
+import { useRef , useEffect,useState } from "react";
 import { addChef,addWaiter,addRoomTable,getDashboardStats,deleteWaiter,deleteChef,deleteRoomTable } from "../../api/adminApiSecure";
 import { getAllChefs,getAllWaiters,getAllRoomTables } from "../../api/publicApi";
 import { useAuth } from "../../auth/authContext";
@@ -8,11 +8,12 @@ import "../../pages/styles/AdminPage.css";
 import { IoIosCloseCircle,IoMdAddCircleOutline,IoIosPeople } from "react-icons/io";
 import { IoFilterCircle } from "react-icons/io5";
 import { MdMeetingRoom } from "react-icons/md";
-import { BsFillPersonFill } from "react-icons/bs";
 import { PiForkKnifeFill } from "react-icons/pi";
 import { PiListChecksThin } from "react-icons/pi";
 import { BsFillKanbanFill } from "react-icons/bs";
 import { FaComments } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa6";
+
 
 
 
@@ -20,6 +21,7 @@ import { FaComments } from "react-icons/fa";
 const AdminPage = () => {
   const { signOut } = useAuth();
   const navigate = useNavigate();
+  const feedbackListRef = useRef(null);
 
   const [totalReviews, setTotalReviews] = useState(0);
   const [avgServiceRating, setAvgServiceRating] = useState(0);
@@ -199,14 +201,13 @@ const AdminPage = () => {
 
 
   const applyFilters = () => {
-    // Implement filter application logic here
-    console.log("Applying filters:", filters);
+    setFilters({ ...filters });
+    feedbackListRef.current?.scrollIntoView({ behavior: 'smooth',block:'start' });
   }
 
   const clearFilters = () => {
     setFilters({ waiter:"", chef:"", roomTable:"", rating:"" });
 
-    console.log("Clearing filters");
   }
 
 
@@ -243,15 +244,15 @@ const AdminPage = () => {
                   <div className="filter-grid">
                     <select value={filters.waiter} onChange={e => setFilters({ ...filters, waiter: e.target.value })}>
                       <option value="">All Waiter</option>
-                      {waiters.map(w => <option key={w.name}>{w.name}</option>)}
+                      {waiters.map(w => <option key={w.name} value={w.name}>{w.name}</option>)}
                     </select>
                     <select value={filters.chef} onChange={e => setFilters({ ...filters, chef: e.target.value })}>
                       <option value="">All Chef</option>
-                      {chefs.map(c => <option key={c.name}>{c.name}</option>)}
+                      {chefs.map(c => <option key={c.name} value={c.name}>{c.name}</option>)}
                     </select>
                     <select value={filters.roomTable} onChange={e => setFilters({ ...filters, roomTable: e.target.value })}>
                       <option value="">All Room/Table</option>
-                      {roomTables.map(r => <option key={r.roomTable}>{r.roomTable}</option>)}
+                      {roomTables.map(r => <option key={r.roomTable} value={r.roomTable}>{r.roomTable}</option>)}
                     </select>
                     <select value={filters.rating} onChange={e => setFilters({ ...filters, rating: e.target.value })}>
                       <option value="">All Rating</option>
@@ -298,7 +299,7 @@ const AdminPage = () => {
                   </div>
                   
                   {/* ---- Waiter List ---- */}
-                  <h5><BsFillPersonFill className="icon-small"/> Waiters</h5>
+                  <h5><FaUserTie className="icon-small"/> Waiters</h5>
                   <div className="list-section">
                     {waiters.length === 0 ? (
                       <p className="empty-text">No waiters available</p>
@@ -361,7 +362,7 @@ const AdminPage = () => {
                 </div>
 
                 {/* Feedback List */}
-                <div className="card">
+                <div className="card" ref={feedbackListRef}>
                   <h2><FaComments className="icon"/> Feedbacks</h2>
                   <div className="feedbacks"><FeedbackList filters={filters} /></div>
                 </div>

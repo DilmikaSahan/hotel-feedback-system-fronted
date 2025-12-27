@@ -10,7 +10,7 @@ const RatingStep = ({ title, rateKey, commentKey, feedback, setFeedback }) => (
     />
 
     <textarea
-      placeholder="Comment (optional)"
+      placeholder="Comment (optional) ..."
       value={feedback[commentKey]}
       onChange={e => setFeedback(f => ({ ...f, [commentKey]: e.target.value }))}
     />

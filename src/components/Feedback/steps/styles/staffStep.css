@@ -1,0 +1,16 @@
+/* Staff step: waiter & chef grids */
+.staff-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-top: 0.5rem;
+}
+@media (max-width: 640px) {
+  .staff-step {
+    gap: 1.2rem;
+  }
+
+  .staff-step h3 {
+    font-size: 1rem;    
+  }
+}

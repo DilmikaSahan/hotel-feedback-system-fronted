@@ -1,0 +1,272 @@
+/* Layout */
+.feedback-container {
+  max-width: 720px;
+  margin: 2.5rem auto;
+  padding: 1.75rem 1.5rem 2rem;
+  border-radius: 8px;
+  background: transparent;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  color: #e5e7eb;
+  box-sizing: border-box;
+}
+.feedback-container h3{
+    font-size:16px;
+    color: #636161ff;
+}
+.feedback-container textarea{
+    margin-top:10px;
+    resize: vertical;
+    min-height: 80px;
+    max-height: 400px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+.feedback-container input {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+} 
+
+.feedback-container input:focus,
+.feedback-container textarea:focus {
+    border-color: #1d50bdff;
+}
+
+.user-detail-label{
+    color: #444546ff;
+    font-size: 14px;
+    font-weight: 500;
+    margin:0;
+}
+.order-input{
+   
+}
+
+/* Header & steps */
+.feedback-header p {
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+}
+
+.feedback-header .progress-bar {
+  position: relative;
+  width: 100%;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.25);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+
+
+.step-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.step-tabs span {
+  font-size: 0.8rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  color: #7a7a7aff;
+  font-weight: 500;
+}
+
+.step-tabs span.active {
+  color: #1d50bdff;
+
+}
+
+/* Shared card grid for staff & room buttons */
+.card-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+
+  max-height: 600px;
+  overflow-y: auto;
+
+
+  
+}
+
+
+.card-grid button {
+  padding: 0.9rem 0.85rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: transparent;
+  color: #636363ff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* 👈 stack icon above text */
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  transition: all 180ms ease-out;
+}
+.card-grid button span{
+    margin-top:0px;
+    margin-bottom:10px;
+    font-size: 14px;
+}
+.card-grid button .icon{
+    margin-top:10px;
+
+}
+
+
+.card-grid button:hover {
+  border-color: #60a5fa;
+  background: #1e40af22;
+  transform: translateY(-1px);
+}
+.card-grid button.selected,
+.selected {
+  background: #1d4ed8;
+  border-color: transparent;
+  color: #f9fafb;
+}
+
+/* Emoji row from EmojiRating */
+.emoji-row {
+  display: flex;
+  gap: 1rem;
+  color: #bb4040ff;
+}
+
+.emoji-row button {
+  display: flex;
+  flex:1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem 0.4rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: transparent;
+  color: #444546ff;
+  cursor: pointer;
+  font-size: 1.35rem;
+  transition: all 160ms ease-out;
+}
+.emoji-row button span{
+    font-size: 1.6rem;
+}
+
+.emoji-row button small { 
+    font-size: 0.8rem; 
+    color: #5a5a5aff; 
+    margin-top: 4px;
+}
+
+.emoji-row button:hover {
+  border-color: #fbbe24dc;
+  transform: translateY(-1px) scale(1.02);
+}
+
+.emoji-row textarea{
+    resize: vertical;
+    min-height: 80px;
+    max-height: 400px;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+.emoji-row button.selected,
+.selected {
+    background: #fbbe24e7;
+    border-color: transparent;
+    color: #778ba7ff;
+    }
+/* Navigation buttons */
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.nav-buttons button {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 160ms ease-out, box-shadow 160ms ease-out, background 160ms ease-out;
+}
+
+.nav-buttons button:first-child {
+  background: transparent;
+  color: #3b3c3dff;
+  border: 1px solid rgba(58, 58, 58, 0.4);
+}
+
+.nav-buttons button {
+  background: #1d4ed8;
+  color: #f9fafb;
+  box-shadow: 0 2px 8px rgba(200, 201, 202, 0.55);
+}
+
+.nav-buttons button:hover {
+  transform: translateY(-1px);
+}
+
+.button-icon{
+    vertical-align: middle;
+    padding-bottom: 3px;
+    padding-right: 4px;
+    padding-left: 4px;
+    font-size: 16px;
+
+}
+.nav-buttons .submit-btn {
+  background: #0fa346ff;        /* solid green */
+  border: none;
+  color: #f9fafb;
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.55);
+}
+
+@media (max-width: 640px) {
+    .feedback-container {
+    margin: 1.5rem 1rem;
+    padding: 1.5rem 1.25rem 1.75rem;
+    border-radius: 1rem;
+  }
+  .nav-buttons {
+    flex-direction: column;
+  }
+  .emoji-row{
+    flex-direction: column;
+  }
+}
+@media (max-width: 480px) {
+  .nav-buttons {
+    display: flex;
+    flex-direction: column;
+
+  }
+}

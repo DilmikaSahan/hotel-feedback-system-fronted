@@ -1,24 +1,46 @@
-const STEPS = ["Staff", "Room", "Details", "Service", "Food", "Ambiance"];
+import "./FeedbackHeader.css";
+import { STEPS } from "./stepsConfig";
+import { IoIosPeople } from "react-icons/io";
 
-const FeedbackHeader = ({ step }) => {
-  const progress = ((step + 1) / STEPS.length) * 100;
+const FeedbackHeader = ({ currentStep }) => {
+  const stepIndex = STEPS.findIndex(s => s.key === currentStep);
+  const progress = ((stepIndex + 1) / STEPS.length) * 100;
+
+  const activeStep = STEPS[stepIndex];
+  const Icon = activeStep.icon;
 
   return (
     <div className="feedback-header">
-      <h2>{STEPS[step]}</h2>
-      <p>Please complete the {STEPS[step].toLowerCase()} section</p>
+      {/* Title */}
+      <div className="head">
+      <Icon className="head-icon"/> 
+      <h2>{activeStep.title}</h2>
+      <p className="subtitle">{activeStep.subtitle}</p>
+      </div>
+      
 
-      <div className="progress-bar">
-        <div className="progress" style={{ width: `${progress}%` }} />
+      {/* Progress Bar */}
+      <div className="progress-container">
+        <div
+          className="progress-bar"
+          style={{ width: `${progress}%`,backgroundColor: '#1d4ed8' }}
+        />
       </div>
 
-      <div className="step-tabs">
-        {STEPS.map((s, i) => (
-          <span key={s} className={i === step ? "active" : ""}>
-            {s}
+      {/* Step labels */}
+      <div className="steps">
+        {STEPS.map((step, index) => (
+          <span
+            key={step.key}
+            className={`step ${
+              index === stepIndex ? "active" : ""
+            }`}
+          >
+            {step.label}
           </span>
         ))}
       </div>
+      
     </div>
   );
 };

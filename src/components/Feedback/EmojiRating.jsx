@@ -1,8 +1,10 @@
+import { FaFaceFrown } from "react-icons/fa6";
+
 const EMOJIS = [
   { value: 1, label: "Poor", icon: "😞" },
-  { value: 2, label: "Fair", icon: "😐" },
-  { value: 3, label: "Good", icon: "🙂" },
-  { value: 4, label: "Very Good", icon: "😄" },
+  { value: 2, label: "Fair", icon: "😒" },
+  { value: 3, label: "Good", icon: "😊" },
+  { value: 4, label: "Very Good", icon: "😀" },
   { value: 5, label: "Excellent", icon: "😍" },
 ];
 

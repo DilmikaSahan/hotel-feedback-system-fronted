@@ -15,7 +15,7 @@ const Home = () => {
       <div className="home-actions">
         <button
           className="btn btn-primary"
-          onClick={() => navigate("/feedback")}
+          onClick={() => navigate("/feedbackform")}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

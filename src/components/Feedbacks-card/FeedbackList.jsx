@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react";
 import FeedbackCard from "./FeedbackCard.jsx";
 import { getAllFeedbacks } from "../../api/adminApiSecure.js";
-const FeedbackList = (filters) => {
+const FeedbackList = ({filters}) => {
     const [allFeedbacks,setAllFeedbacks]=useState([]);
     const [filteredFeedbacks,setFilteredFeedbacks]=useState([]);
 
@@ -16,8 +16,10 @@ const FeedbackList = (filters) => {
     const fetchFeedbacks=async()=>{
         try{
             const data = await getAllFeedbacks();
-            setAllFeedbacks(data);
-            setFilteredFeedbacks(data);
+
+            const sortedData = [...data].sort((a,b)=>new Date (b.createdDate)- new Date (a.createdDate));
+            setAllFeedbacks(sortedData);
+            setFilteredFeedbacks(sortedData);
         }catch(error){
             console.error("Error fetching feedbacks:",error);
         }

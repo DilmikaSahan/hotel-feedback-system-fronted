@@ -1,9 +1,10 @@
 import StarRating from './StarRating';
 import './FeedbackCard.css'
-import { BsFillPersonFill } from "react-icons/bs";
 import { MdMeetingRoom } from "react-icons/md";
 import { PiForkKnifeFill } from "react-icons/pi";
 import { MdLocalPhone } from "react-icons/md";
+import { FaUserTie } from "react-icons/fa6";
+
 
 
 const FeedbackCard = ({feedback}) => {
@@ -29,7 +30,7 @@ const FeedbackCard = ({feedback}) => {
             <h3 className="feedback-username">{feedback.fullName}</h3>
 
             <div className="row">
-                <span><BsFillPersonFill  className='icon'/>{feedback.waiterName}</span>
+                <span><FaUserTie  className='icon'/>{feedback.waiterName}</span>
                 <span><PiForkKnifeFill className='icon'/>{feedback.chefName}</span>
             </div>
             <div className="row">

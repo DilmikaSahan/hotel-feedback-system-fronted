@@ -1,0 +1,98 @@
+.landing-page {
+  text-align: center;
+  padding: 2rem;
+  background: #f5f3f370;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.landing-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.landing-icon.success {
+  color: #fff;
+  background-color: #16a34a; 
+  border-radius: 50%; padding: 6px; 
+  box-shadow: 0 0 16px #16a34a;
+
+
+}
+
+.landing-icon.fail {
+  color: #fff;  
+  background-color: #dc2626; 
+  border-radius: 50%; padding: 6px; 
+  box-shadow: 0 0 15px #dc2626; 
+  font-size: 2rem;
+}
+
+.landing-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.landing-actions button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.landing-actions button:first-child {
+  background: #1d4ed8;
+  color: #fff;
+}
+
+.landing-actions button:last-child {
+  background: transparent;
+  color: #3f3e3eff;
+  border: 1px solid rgba(58, 58, 58, 0.4);
+}
+.btn-icon{
+    vertical-align: middle;
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-bottom: 4px;
+    font-size: 16px;
+
+}
+
+@media (max-width: 700px) {
+
+  .landing-page {
+    max-width: 90%;
+    managing: auto;
+    padding-top: 1.5rem;
+    padding: 1.5rem;
+  }
+  .landing-actions {
+    flex-direction: column;
+  }
+   .landing-actions button {
+    width: 100%;
+  }
+}
+@media (max-width: 480px) {
+  .landing-page {
+    padding: 1rem;
+    max-width: 90%;
+  }
+
+  .landing-actions {
+    flex-direction: column;
+  }
+
+  .landing-actions button {
+    width: 100%;
+  }
+  
+}
